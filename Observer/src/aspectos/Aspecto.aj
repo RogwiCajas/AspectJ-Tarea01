@@ -1,12 +1,22 @@
 package aspectos;
 
 
+import javafx.stage.Stage;
+import prueba.Main;
 
 public aspect Aspecto {
-	pointcut CambioColorRojo():execution(void ButtonRedListener.update(String) );
-	after(): CambioColorRojo(){
-		System.out.println("Color Rojo  ");
-	}
+	pointcut CambioColor():call(void Main.start(Stage arg0));
 	
+	after(): CambioColor(){
+		
+		if (comprobar().equals("Azul")) {
+			Main.cambiarAzul();
+		}
+		
+	}
 
+	public static String comprobar() {
+		
+		return "Azul";
+	}
 }
