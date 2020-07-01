@@ -1,15 +1,13 @@
-package pusblisher;
+package prueba;
 
-import editor.Editor;
+
 import javafx.application.Application;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
-import listeners.ButtonBlueListener;
-import listeners.ButtonGreenListener;
-import listeners.ButtonRedListener;
+
 
 public class Main extends Application {
 	
@@ -23,22 +21,6 @@ public class Main extends Application {
 		Button Redbt = new Button("Red");
 		Button Greenbt = new Button("Green");
 		//Creo el editor y suscribo los botones a un cada evento
-		Editor editor = new Editor();
-		
-        editor.events.subscribe("clickOnBlue", new ButtonBlueListener(/*Bluebt,root*/));
-        editor.events.subscribe("clickOnRed", new ButtonRedListener(/*Redbt,root*/));
-        editor.events.subscribe("clickOnGreen", new ButtonGreenListener(/*Greenbt,root*/));
-        
-        try {
-        	
-        	editor.cambiarColorAzul(Bluebt,root);
-        	editor.cambiarColorRojo(Redbt,root);
-        	editor.cambiarColorVerde(Greenbt,root);
-        	
-         
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
 		
 		
 		root.getChildren().addAll(Bluebt,Redbt,Greenbt);
@@ -46,12 +28,6 @@ public class Main extends Application {
 		Scene scene = new Scene(root, 400,400);
 		stage.setScene(scene);
 		stage.show();
-		
-		
-
-        
-		
-		
 	}
 	public static void main(String[] args) {
 		launch(args);
