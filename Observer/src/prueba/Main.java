@@ -20,9 +20,11 @@ public class Main extends Application {
 		Button Bluebt = new Button("Blue");
 		Button Redbt = new Button("Red");
 		Button Greenbt = new Button("Green");
-		//Creo el editor y suscribo los botones a un cada evento
-		
-		
+		//
+		Bluebt.setOnAction(e -> root.setStyle("-fx-background-color: Blue"));
+		Redbt.setOnAction(e -> root.setStyle("-fx-background-color: Red"));
+		Greenbt.setOnAction(e -> root.setStyle("-fx-background-color: Green"));
+		//
 		root.getChildren().addAll(Bluebt,Redbt,Greenbt);
 		root.setAlignment(Pos.CENTER);
 		Scene scene = new Scene(root, 400,400);
