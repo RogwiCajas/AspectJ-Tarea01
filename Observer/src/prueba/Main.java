@@ -17,21 +17,6 @@ public class Main extends Application {
 	@Override
 	public void start(Stage arg0) throws Exception {
 		VBox root = new VBox();
-		EventHandler<ActionEvent> evB = new EventHandler<ActionEvent>() {
-		    @Override public void handle(ActionEvent e) {
-		        updateB(root);
-		    }
-		};
-		EventHandler<ActionEvent> evR = new EventHandler<ActionEvent>() {
-		    @Override public void handle(ActionEvent e) {
-		        updateR(root);
-		    }
-		};
-		EventHandler<ActionEvent> evG = new EventHandler<ActionEvent>() {
-		    @Override public void handle(ActionEvent e) {
-		        updateG(root);
-		    }
-		};
 		//Creo la ventana
 		Stage stage = new Stage();
 		
@@ -41,9 +26,9 @@ public class Main extends Application {
 		Button Greenbt = new Button("Green");
 		//
 		
-		Bluebt.setOnAction(evB);
-		Redbt.setOnAction(evR);
-		Greenbt.setOnAction(evG);
+		Bluebt.setOnAction(e -> root.setStyle("-fx-background-color: Blue"));
+		Redbt.setOnAction(e -> root.setStyle("-fx-background-color: Red"));
+		Greenbt.setOnAction(e -> root.setStyle("-fx-background-color: Green"));
 		//
 		root.getChildren().addAll(Bluebt,Redbt,Greenbt);
 		root.setAlignment(Pos.CENTER);
@@ -55,17 +40,6 @@ public class Main extends Application {
 		launch(args);
 	}
 	
-	public void updateB(VBox root) {
-		root.setStyle("-fx-background-color: Blue");
-		
-	}
-	public void updateR(VBox root) {
-		root.setStyle("-fx-background-color: Red");
-		
-	}
-	public void updateG(VBox root) {
-		root.setStyle("-fx-background-color: Green");
-		
-	}
+
 
 }
